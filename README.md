@@ -10,11 +10,11 @@ Vendor prefixes or CSS Prefixes are set of browser specific commands attached to
    <pre>                        python2.7 addPrefixes.py / python2.7 removePrefixes.py </pre>
 4. The loadtime.js javascript used to calculate the loadtime has already been appended to the subjects.
 5. Start the localserver to host the subjects for carrying out the experiments using the following command:<br/>
-   <pre>                        ```python3 -m http.server```                                  </pre>
+   <pre>                          python3 -m http.server                                  </pre>
 6. Start another localserver by running the ```RecordDataServer.py``` kept in the prefixes_files folder. The python script will be      used to   capture the load time and write it onto a CSV file.<br/>
-   <pre>                        ```python2.7 RecordDataServer.py```                            </pre>
+   <pre>                           python2.7 RecordDataServer.py                            </pre>
 7. Now the prerequisites are met to start the experiment. The config.json of Androidrunner for running the experiments is          placed   in the repository and should be used. The laptop's IP should be used to connect the websites through the Android      device. 
 8. Every run takes place for 20 seconds and its followed by a 2 minute cooling period. Android and Batterystats are the            profilers used.
 9. Upon completion of the experiment ,run the ```csv_merge.py``` script present in the Profiler_Output folder. Ensure the path is        modified to the output folder in the script. This script is used to merge the different outputs into two csv files - Joules    csv and cpu usage csv.<br/>
-   <pre>                         ```python2.7 csv_merge.py```                                    </pre>
+   <pre>                            python2.7 csv_merge.py                                      </pre>
 
