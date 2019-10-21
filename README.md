@@ -8,7 +8,7 @@ Vendor prefixes or CSS Prefixes are set of browser specific commands attached to
 2. Open the Prefixes_files folder which contains the python scripts for Adding/Removing prefixes. All the Subjects used in the    experiment are placed in a drive location which is shared in the Repository.
 3. Keep two seperate folders and copy the subjects onto both the folders. Place the ```addPrefixes.py``` in one folder and the          ```removePrefixes.py``` in another folder. Execute them from the command line in order to have two sets of subjects with and          without prefixes. Follow the below command:<br/>
    <pre>                        python2.7 addPrefixes.py 
-                             python2.7 removePrefixes.py </pre>
+                           python2.7 removePrefixes.py </pre>
 4. The loadtime.js javascript used to calculate the loadtime has already been appended to the subjects.
 5. Start the localserver to host the subjects for carrying out the experiments using the following command:<br/>
    <pre>                        python3 -m http.server                                  </pre>
