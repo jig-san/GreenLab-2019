@@ -160,13 +160,3 @@ t.test(x=cpu_data_without_mean[,2],
 wilcox.test(x=joule_data_with_mean[,2], 
             y=joule_data_without_mean[,2], 
             paired = FALSE)
-#=========================================================
-# Correlation
-#=========================================================
-
-plot(cpu, memory, grid())
-abline(lm(cpu~memory), col='red')
-
-cor.test(x=cpu, y=memory, method="spearman" , conf.int=TRUE, exact = FALSE)
-
-cor.test(x=cpu, y=memory, method="pearson" , conf.int=TRUE)
