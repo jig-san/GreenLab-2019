@@ -1,0 +1,33 @@
+{
+  "type": "web",
+  "devices": ["j7"],
+  "replications": 15,
+  "duration": 15000,
+  "browsers": ["chrome"],
+  "monkeyrunner_path": "/home/kailainathan/Android/Sdk/tools/bin/monkeyrunner",
+  "systrace_path": "/home/kailainathan/Android/Sdk/platform-tools/systrace/systrace.py",
+  "powerprofile_path": "/home/kailainathan/Documents/androidrunner/examples/batterystats/Scripts/power_profile.xml",
+  "paths": ["http://192.168.1.92:8000/with_prefix/stackoverflow.com/stackoverflow.com/"],
+  "profilers": {
+    "batterystats": {
+      "cleanup": true,
+      "subject_aggregation": "none",
+      "experiment_aggregation" : "none"
+    },
+  "android": {
+      "subject_aggregation" : "default",
+      "experiment_aggregation" : "default",
+      "sample_interval": 0,
+      "data_points": ["cpu", "mem"]
+    }
+  },
+  "scripts": {
+    "before_experiment": "/home/kailainathan/Documents/androidrunner/examples/batterystats/Scripts/before_experiment.py",
+    "before_run": "Scripts/before_run.py",
+    "after_launch": "/home/kailainathan/Documents/androidrunner/examples/batterystats/Scripts/after_launch.py",
+    "before_close": "Scripts/before_close.py",
+    "after_run": "Scripts/after_run.py",
+    "after_experiment": "Scripts/after_experiment.py"
+  },
+  "time_between_run": 120000
+}
