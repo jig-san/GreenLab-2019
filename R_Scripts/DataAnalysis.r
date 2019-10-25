@@ -1,16 +1,15 @@
 #=========================================================
 # LOAD LIBRARIES AND DATASETS
 #=========================================================
-install.packages("ggplot2")
-install.packages("car")
+install.packages("dplyr")
 require("ggplot2")
 require("car")
+require("dplyr")
 
 # Load datasets
-
-timing_data <- read.csv(file="Timing.csv",head=TRUE,sep=",")
-joule_data<-read.csv(file = 'Joule_results_combined.csv',head=TRUE,sep=",")
-cpu_data<-read.csv(file = 'CPU_results_combined.csv', head=TRUE,sep=",")
+timing_data <- read.csv(file="data/timing.csv",head=TRUE,sep=",")
+joule_data<-read.csv(file = 'data/Joule_results_combined.csv',head=TRUE,sep=",")
+cpu_data<-read.csv(file = 'data/CPU_results_combined.csv', head=TRUE,sep=",")
 
 ##Filtering the data into two seperate sets based on data for with prefixes 
 ##and data for without prefixes 
@@ -35,6 +34,51 @@ cpu_data_with_mean<-  aggregate(cpu_data_with[, 4], list(cpu_data_with$subject),
 
 joule_data_without_mean<- aggregate(joule_data_without[, 1], list(joule_data_without$filename), mean)
 joule_data_with_mean<- aggregate(joule_data_with[, 1], list(joule_data_with$filename), mean)
+
+#=========================================================
+# Tests for a single page
+#=========================================================
+
+joule_quora_without <- joule_data[106:120,]
+timing_quora_without <- timing_data[703:716,]
+timing_twitter_without <- timing_data[30:44,]
+
+min(timing_quora_without[,1])
+max(timing_quora_without[,1])
+
+min(timing_twitter_without[,1])
+max(timing_twitter_without[,1])
+
+sd(timing_quora_without[,1])
+
+par(mar=c(4,4,1,1))
+
+hist(timing_quora_without[,1],
+     main="Page load time for Quora without prefixes",
+     xlab="Pae load time, ms",
+     ylab="Number of pages",
+     col="lightblue",
+     breaks=13
+)
+
+joule_bitly_without <- joule_data[631:645,]
+sd(joule_bitly_without[,1])
+
+View(cpu_data_without)
+
+min(joule_bitly_without[,1])
+max(joule_bitly_without[,1])
+
+min(joule_quora_without[,1])
+max(joule_quora_without[,1])
+
+hist(joule_bitly_without[,1],
+     main="Energy consumption for Bitly without prefixes",
+     xlab="Energy consumption, Joules",
+     ylab="Number of pages",
+     col="lightblue",
+     breaks=13
+)
 
 #=========================================================
 # Plotting
@@ -115,6 +159,15 @@ max(timing_data_without_mean[,2])
 max(cpu_data_without_mean[,2])
 max(joule_data_without_mean[,2])
 
+#std dev
+sd(timing_data_with_mean[,2])
+sd(cpu_data_with_mean[,2])
+sd(joule_data_with_mean[,2])
+
+sd(timing_data_without_mean[,2])
+sd(cpu_data_without_mean[,2])
+sd(joule_data_without_mean[,2])
+
 #=========================================================
 # Hypotesis Testing
 #=========================================================
@@ -160,3 +213,13 @@ t.test(x=cpu_data_without_mean[,2],
 wilcox.test(x=joule_data_with_mean[,2], 
             y=joule_data_without_mean[,2], 
             paired = FALSE)
+#=========================================================
+# Correlation
+#=========================================================
+
+plot(cpu, memory, grid())
+abline(lm(cpu~memory), col='red')
+
+cor.test(x=cpu, y=memory, method="spearman" , conf.int=TRUE, exact = FALSE)
+
+cor.test(x=cpu, y=memory, method="pearson" , conf.int=TRUE)
