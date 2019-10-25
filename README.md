@@ -20,4 +20,6 @@ Vendor prefixes or CSS Prefixes are set of browser specific commands attached to
 9. Upon completion of the experiment ,run the ```csv_merge.py``` script present in the Profiler_Output folder. Ensure the path is        modified to the output folder in the script. This script is used to merge the different outputs into two csv files - Joules    csv and cpu usage csv.<br/>
    <pre>                         python2.7 csv_merge.py                                      </pre>
 10. The data filtering and analysis scripts are placed in the R_scripts folder. The raw output csv files are kept in the profiler_output directory. The processed datasets were not used as csv files so they have not been placed in the github.
+11. The plots are present in the Plot_visualization folder in the repository.
+
 
