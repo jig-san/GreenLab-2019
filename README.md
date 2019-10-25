@@ -4,7 +4,8 @@ Vendor prefixes or CSS Prefixes are set of browser specific commands attached to
 
 ## Installation Notes to Replicate the Experiment:
 
-1. Download the repository and extract the contents onto a folder.
+1. Download the repository and extract the contents onto a folder. Also download the androidrunner from the below link:
+<pre>                                      <https://github.com/S2-group/android-runner>   </pre>
 2. Open the Prefixes_files folder which contains the python scripts for Adding/Removing prefixes. All the Subjects used in the    experiment are placed in a drive location which is shared in the Repository.
 3. Keep two seperate folders and copy the subjects onto both the folders. Place the ```addPrefixes.py``` in one folder and the          ```removePrefixes.py``` in another folder. Execute them from the command line in order to have two sets of subjects with and          without prefixes. Follow the below command:<br/>
    <pre>                        python2.7 addPrefixes.py 
