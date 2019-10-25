@@ -1,5 +1,5 @@
 '''
-Python script to combine the seperate joules csv's and the aggregated android results csv's.
+Python script to combine the seperate joules csv's and the aggregated android results csv's into a two seperate csv files.
 Output file will be Joule_results_combined for the joule results obtained from batterystats and CPU_results_combined for the cpu usage results from android profiler.
 '''
 import os
